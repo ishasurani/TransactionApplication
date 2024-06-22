@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Instructions
+
+1. Run `node server/server.js`
+2. Run `npm start`
+3. For the database, 
+    run `brew services start mongodb-community@7.0`
+    Create transaction-db database and transactions collection
+    Upload transactions.json to the collection
+4. Navigate to `http://localhost:4200/`
+
