@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
 
+## Instructions
+
+1. For the database:
+    1. Run `brew services start mongodb-community@7.0`
+    2. Create transaction-db database and transactions collection
+    3. Upload `transactions.json` to the collection
+2. Run `node server/server.js`
+3. Run `npm start`
+4. Navigate to `http://localhost:4200/`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -25,14 +35,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-## Instructions
-
-1. For the database:
-    1. run `brew services start mongodb-community@7.0`
-    2. Create transaction-db database and transactions collection
-    3. Upload `transactions.json` to the collection
-2. Run `node server/server.js`
-3. Run `npm start`
-4. Navigate to `http://localhost:4200/`
 
