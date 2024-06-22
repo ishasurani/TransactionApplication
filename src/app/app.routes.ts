@@ -4,9 +4,10 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
 import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/transaction', pathMatch: 'full' },
-    { path: 'transaction', component: TransactionListComponent},
-    { path: 'transaction/:id', component: TransactionDetailComponent}
+    { path: 'transactions', component: TransactionListComponent},
+    { path: 'transactions/:start/:end', component: TransactionListComponent},
+    { path: 'transaction/:id', component: TransactionDetailComponent},
+    { path: '**', redirectTo: '/transactions', pathMatch: 'full' },
 ];
 
 @NgModule({

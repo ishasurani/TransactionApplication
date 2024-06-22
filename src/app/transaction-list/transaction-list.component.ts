@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Transaction, TransactionService } from '../transaction.service';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -13,17 +13,22 @@ import { RouterModule } from '@angular/router';
 })
 export class TransactionListComponent {
   transactions: Transaction[] = [];
-  start = 1000000000000;
-  end = 2000000000000;
+  start = -8640000000000000;
+  end = 8640000000000000;
 
 
-  constructor(private transactionService: TransactionService, private datePipe: DatePipe) {}
+  constructor(private route: ActivatedRoute, private transactionService: TransactionService, private datePipe: DatePipe) {}
 
   ngOnInit(): void {
-    this.transactionService.getTransactions(this.start, this.end).subscribe((data: Transaction[]) => this.transactions = data)
+    this.route.paramMap.subscribe((p: Params) => {
+      const params = p['params']
+      this.start = params['start']? +params['start'] : -8640000000000000; 
+      this.end = params['end']? +params['end'] : 8640000000000000;
+      this.transactionService.getTransactions(this.start, this.end).subscribe((data: Transaction[]) => this.transactions = data)
+    });
   }
 
   formatDate(date: any): string {
     return this.datePipe.transform(new Date(date), 'dd/MM/yyyy')!;
-}
+  }
 }
